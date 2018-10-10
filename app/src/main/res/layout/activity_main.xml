@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <EditText
+            android:id="@+id/name_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name"
+            android:textSize="20sp"
+            android:layout_margin="8dp"
+            android:inputType="textPersonName|textCapWords" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/date_text_view"
+                style="@style/NormalText"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/back"
+                android:layout_margin="8dp"/>
+
+            <Button
+                android:id="@+id/change_date_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_date"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="8dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Heading"
+            android:text="@string/factor_heading" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/NormalText"
+                android:layout_gravity="bottom"
+                android:text="@string/mobility"/>
+
+            <RatingBar
+                android:id="@+id/rating_bar"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:numStars="5"
+                android:rating="3"
+                android:stepSize="1"
+                android:isIndicator="false"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textSize="14sp"
+            android:text="@string/mobility_hint"
+            android:paddingRight="8dp"/>
+
+        <CheckBox
+            android:id="@+id/stiffness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="24dp"
+            android:paddingTop="8dp"
+            android:text="@string/stiffness"
+            android:textSize="16sp"
+            android:layoutDirection="rtl"/>
+
+        <CheckBox
+            android:id="@+id/pain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="24dp"
+            android:paddingTop="8dp"
+            android:text="@string/pain"
+            android:textSize="16sp"
+            android:layoutDirection="rtl" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/NormalText"
+                android:text="@string/quantity"
+                android:layout_weight="1"
+                android:layout_gravity="top"/>
+
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:onClick="decrement"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/quantity_text_view"
+                style="@style/Heading"
+                android:paddingTop="8dp"
+                android:text="@string/initial_quantity_value"
+                android:textColor="@android:color/black" />
+
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:onClick="increment"
+                android:text="+" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/Heading"
+            android:text="@string/diary_summary" />
+
+        <TextView
+            android:id="@+id/diary_summary_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textColor="@android:color/black"
+            android:text="@string/summary_initial_value"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="submitDiary"
+            android:text="@string/submit"
+            android:layout_gravity="right"/>
+    </LinearLayout>
+
+
+</ScrollView>

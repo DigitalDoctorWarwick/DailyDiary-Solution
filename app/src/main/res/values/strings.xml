@@ -1,0 +1,124 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Daily Diary</string>
+    <string name="factor_heading">Factors</string>
+    <string name="select_date">Select Date</string>
+    <string name="mobility">Mobility</string>
+    <string name="mobility_hint">(0 = worst, 5 = best)</string>
+    <string name="stiffness">Stiffness</string>
+    <string name="pain">Pain in joints</string>
+    <string name="name">Name</string>
+    <string name="initial_quantity_value">0</string>
+    <string name="quantity">Times Fallen</string>
+    <string name="submit">Save and Submit</string>
+    <string name="diary_summary">Diary Summary</string>
+    <string name="summary_initial_value">Not saved or submitted</string>
+
+    <!--
+      Name for the order summary. It will be shown in the format of "Name: Amy" where Amy is the
+      user's name. [CHAR LIMIT=NONE]
+    -->
+    <string name="diary_summary_name">Name: <xliff:g example="Amy" id="name">%s</xliff:g></string>
+
+    <!--
+      Name for the order summary. It will be shown in the format of "Name: Amy" where Amy is the
+      user's name. [CHAR LIMIT=NONE]
+    -->
+    <string name="diary_summary_date">Date: <xliff:g example="01/01/1970" id="date">%s</xliff:g></string>
+
+    <!--
+      Quantity of coffee cups for the order summary. It will be shown in the format of
+      "Quantity: 2", where 2 is the number of cups ordered. [CHAR LIMIT=NONE]
+    -->
+    <string name="diary_summary_mobility">Mobility Rating: <xliff:g example="2" id="mobilityRating">%d</xliff:g></string>
+
+    <!--
+      Whipped cream topping for the order summary. It will be shown in the format of
+      "Add whipped cream? true" or "Add whipped cream? false". [CHAR LIMIT=NONE]
+    -->
+    <string name="diary_summary_stiffness">Stiffness? <xliff:g example="true" id="stiffness">%b</xliff:g></string>
+
+    <!--
+      Chocolate topping for the order summary. It will be shown in the format of
+      "Add chocolate? true" or "Add chocolate? false". [CHAR LIMIT=NONE]
+    -->
+    <string name="diary_summary_pain">Pain in joints? <xliff:g example="true" id="pain">%b</xliff:g></string>
+
+    <!--
+      Quantity of coffee cups for the order summary. It will be shown in the format of
+      "Quantity: 2", where 2 is the number of cups ordered. [CHAR LIMIT=NONE]
+    -->
+    <string name="diary_summary_quantity">Number of falls: <xliff:g example="2" id="quantity">%d</xliff:g></string>
+
+    <!--
+      Total price for the order summary. It will be shown in the format of
+      "Total: $10" where $10 is the price. [CHAR LIMIT=NONE]
+    -->
+    <string name="diary_summary_fall_risk">Total Fall Risk: <xliff:g example="50%" id="fallRisk">%d</xliff:g></string>
+
+    <!--
+      Subject line for the order summary email. It will be in the format of
+      "Just Java order for Amy" where Amy is the user's name. [CHAR LIMIT=NONE]
+    -->
+    <string name="diary_summary_email_subject">New Diary entry for <xliff:g example="Amy" id="name">%s</xliff:g></string>
+    <string name="diary_sent">Diary entry saved and sent via email</string>
+    <string name="less_than_0_falls">You cannot have negative falls</string>
+    <string name="more_than_100_falls">Maximum 100 falls, you should probably go to the hospital</string>
+    <string name="diary_saved">Diary entry is saved, please submit</string>
+
+    <!-- Settings Menu Item [CHAR LIMIT=NONE] -->
+    <string name="settings_menu_item">Settings</string>
+    <!-- Settings Activity Title [CHAR LIMIT=NONE] -->
+    <string name="settings_title">Name Setting</string>
+
+    <!-- Strings For Name Preference [CHAR LIMIT=30] -->
+    <string name="settings_name_label">Name</string>
+    <string name="settings_name_key" translatable="false">name</string>
+    <string name="settings_name_default" translatable="false">Name</string>
+
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+    <string name="action_delete_all_entries">Delete All Entries</string>
+    <string name="action_save">Save</string>
+    <string name="action_delete">Delete</string>
+    <string name="insert_successful">Diary Entry Saved</string>
+    <string name="dummy_data_added_toast">Dummy Diary Entry Added</string>
+    <string name="could_not_submit_message">Could not submit, Message:\n<xliff:g example="message" id="message">%s</xliff:g></string>
+    <string name="item_changed_message">Item changed, please save or resubmit</string>
+    <string name="list_submitted">Submitted: <xliff:g example="true" id="submitted">%b</xliff:g></string>
+
+    <!-- Title text for the empty view, which describes the empty diary image [CHAR LIMIT=50] -->
+    <string name="empty_view_title_text">Your diary is empty...</string>
+
+    <!-- Subtitle text for the empty view that prompts the user to add an entry [CHAR LIMIT=50] -->
+    <string name="empty_view_subtitle_text">Get started by adding an entry</string>
+    <string name="activity_title_edit_diary">Edit Diary Entry</string>
+    <string name="activity_title_new_diary">New Diary Entry</string>
+    <string name="insert_failed">Failed to add diary entry</string>
+    <string name="update_successful">Updated diary entry</string>
+    <string name="update_failed">Failed to update diary entry</string>
+
+    <!-- Dialog message when user is leaving editor but hasn't saved changes [CHAR LIMIT=NONE] -->
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+
+    <!-- Dialog button text for the option to discard a user's changes [CHAR LIMIT=20] -->
+    <string name="discard">Discard</string>
+
+    <!-- Dialog button text for the option to keep editing the current entry [CHAR LIMIT=20] -->
+    <string name="keep_editing">Keep Editing</string>
+
+    <!-- Toast message in editor when current entry was successfully deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_diary_successful">Entry deleted</string>
+
+    <!-- Toast message in editor when current entry has failed to be deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_diary_failed">Error with deleting entry</string>
+
+    <!-- Dialog message to ask the user to confirm deleting the current entry [CHAR LIMIT=NONE] -->
+    <string name="delete_dialog_msg">Delete this diary entry?</string>
+
+    <!-- Dialog button text for the option to confirm deleting the current entry [CHAR LIMIT=20] -->
+    <string name="delete">Delete</string>
+
+    <!-- Dialog button text for the option to cancel deletion of the current entry [CHAR LIMIT=20] -->
+    <string name="cancel">Cancel</string>
+    <string name="diary_deleting_successful">Diary entry deleted</string>
+    <string name="diary_deleting_falied">Failed to delete diary entry</string>
+</resources>
