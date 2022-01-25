@@ -1,13 +1,14 @@
 package com.example.android.dailydiary.data;
 
 import android.content.ContentResolver;
-import android.content.UriMatcher;
+//import android.content.UriMatcher;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public final class DiaryContract {
 
@@ -45,11 +46,13 @@ public final class DiaryContract {
         public static final String COLUMN_DIARY_SUBMITTED = "submitted";
 
         public static long convertDateToUnixTimestamp(String strDate){
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
             long timeStamp = 0;
             try {
                 Date date = formatter.parse(strDate);
-                timeStamp = date.getTime();
+                if (date != null) {
+                    timeStamp = date.getTime();
+                }
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -57,7 +60,7 @@ public final class DiaryContract {
         }
 
         public static String convertUnixTimestampToDate(long timestamp){
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
             Date date = new Date(timestamp);
             return formatter.format(date);
         }

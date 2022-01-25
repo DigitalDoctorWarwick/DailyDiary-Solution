@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/name"
+            android:autofillHints="name"
             android:textSize="20sp"
             android:layout_margin="8dp"
             android:inputType="textPersonName|textCapWords" />
@@ -65,11 +65,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
                 android:numStars="5"
                 android:rating="3"
                 android:stepSize="1"
-                android:isIndicator="false"/>
+                android:isIndicator="false"
+                 />
 
         </LinearLayout>
 
@@ -80,27 +81,29 @@
             android:gravity="end"
             android:textSize="14sp"
             android:text="@string/mobility_hint"
-            android:paddingRight="8dp"/>
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:paddingEnd="8dp" />
 
         <CheckBox
             android:id="@+id/stiffness"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="24dp"
             android:paddingTop="8dp"
             android:text="@string/stiffness"
             android:textSize="16sp"
-            android:layoutDirection="rtl"/>
+            android:layoutDirection="rtl"
+            android:paddingStart="8dp"
+            android:paddingEnd="24dp" />
 
         <CheckBox
             android:id="@+id/pain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="24dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="24dp"
             android:paddingTop="8dp"
             android:text="@string/pain"
             android:textSize="16sp"
@@ -157,7 +160,7 @@
             android:layout_height="wrap_content"
             android:onClick="submitDiary"
             android:text="@string/submit"
-            android:layout_gravity="right"/>
+            android:layout_gravity="end"/>
     </LinearLayout>
 
 

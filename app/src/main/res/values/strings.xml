@@ -86,7 +86,7 @@
     <string name="list_submitted">Submitted: <xliff:g example="true" id="submitted">%b</xliff:g></string>
 
     <!-- Title text for the empty view, which describes the empty diary image [CHAR LIMIT=50] -->
-    <string name="empty_view_title_text">Your diary is empty...</string>
+    <string name="empty_view_title_text">Your diary is empty…</string>
 
     <!-- Subtitle text for the empty view that prompts the user to add an entry [CHAR LIMIT=50] -->
     <string name="empty_view_subtitle_text">Get started by adding an entry</string>
@@ -120,5 +120,7 @@
     <!-- Dialog button text for the option to cancel deletion of the current entry [CHAR LIMIT=20] -->
     <string name="cancel">Cancel</string>
     <string name="diary_deleting_successful">Diary entry deleted</string>
-    <string name="diary_deleting_falied">Failed to delete diary entry</string>
+    <string name="diary_deleting_failed">Failed to delete diary entry</string>
+    <string name="empty_list">Empty List</string>
+    <string name="add_new_diary_entry">Add New Diary Entry</string>
 </resources>

@@ -15,12 +15,11 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.preference.PreferenceManager;
-import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -38,6 +37,7 @@ import com.example.android.dailydiary.data.DiaryContract.DiaryEntry;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -48,10 +48,11 @@ public class MainActivity extends AppCompatActivity
 
     // OnTouchListener that listens for any user touches on a View, implying that they are modifying
     // the view, and we change the mDiaryHasChanged boolean to true.
-    private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
+    private final View.OnTouchListener mTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
             mDiaryHasChanged = true;
+            view.performClick();
             return false;
         }
     };
@@ -119,7 +120,7 @@ public class MainActivity extends AppCompatActivity
             mQuantity = Integer.parseInt(mFallsTextView.getText().toString());
 
             // set current date into textview
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
             // set selected date into textview
             mDateTextView.setText(simpleDateFormat.format(mCalendar.getTime()));
 
@@ -187,7 +188,7 @@ public class MainActivity extends AppCompatActivity
             public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
 
                 mCalendar.set(selectedYear, selectedMonth, selectedDay);
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
                 mDateTextView.setText(simpleDateFormat.format(mCalendar.getTime()));
             }
         };
@@ -310,7 +311,7 @@ public class MainActivity extends AppCompatActivity
         }
         mQuantity = mQuantity + 1;
         mFallsTextView.setText(String.valueOf(mQuantity));
-        String messageString = "This is the message";
+        //String messageString = "This is the message";
     }
 
     /**
@@ -447,13 +448,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
         if (cursor.moveToFirst()) {
-            String name = cursor.getString(cursor.getColumnIndex(DiaryEntry.COLUMN_DIARY_NAME));
-            long date = cursor.getLong(cursor.getColumnIndex(DiaryEntry.COLUMN_DIARY_DATE));
-            int mobility = cursor.getInt(cursor.getColumnIndex(DiaryEntry.COLUMN_DIARY_MOBILITY));
-            boolean stiffness = cursor.getInt(cursor.getColumnIndex(DiaryEntry.COLUMN_DIARY_STIFFNESS)) == 1;
-            boolean pain = cursor.getInt(cursor.getColumnIndex(DiaryEntry.COLUMN_DIARY_PAIN)) == 1;
-            int falls = cursor.getInt(cursor.getColumnIndex(DiaryEntry.COLUMN_DIARY_FALLS));
-            boolean submitted = cursor.getInt(cursor.getColumnIndex(DiaryEntry.COLUMN_DIARY_SUBMITTED)) == 1;
+            String name = cursor.getString(cursor.getColumnIndexOrThrow(DiaryEntry.COLUMN_DIARY_NAME));
+            long date = cursor.getLong(cursor.getColumnIndexOrThrow(DiaryEntry.COLUMN_DIARY_DATE));
+            int mobility = cursor.getInt(cursor.getColumnIndexOrThrow(DiaryEntry.COLUMN_DIARY_MOBILITY));
+            boolean stiffness = cursor.getInt(cursor.getColumnIndexOrThrow(DiaryEntry.COLUMN_DIARY_STIFFNESS)) == 1;
+            boolean pain = cursor.getInt(cursor.getColumnIndexOrThrow(DiaryEntry.COLUMN_DIARY_PAIN)) == 1;
+            int falls = cursor.getInt(cursor.getColumnIndexOrThrow(DiaryEntry.COLUMN_DIARY_FALLS));
+            boolean submitted = cursor.getInt(cursor.getColumnIndexOrThrow(DiaryEntry.COLUMN_DIARY_SUBMITTED)) == 1;
 
             mNameTextView.setText(name);
             mCalendar.setTimeInMillis(date);
@@ -551,7 +552,7 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(this, R.string.diary_deleting_successful, Toast.LENGTH_SHORT).show();
                 finish();
             } else {
-                Toast.makeText(this, R.string.diary_deleting_falied, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.diary_deleting_failed, Toast.LENGTH_SHORT).show();
             }
         }
     }

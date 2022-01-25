@@ -72,23 +72,21 @@ public class DiaryProvider extends ContentProvider {
     @Override
     public Uri insert(Uri uri, ContentValues contentValues) {
         final int match = sUriMatcher.match(uri);
-        switch (match) {
-            case DIARIES:
-                SQLiteDatabase db = mDbHelper.getWritableDatabase();
-                long id = db.insert(DiaryEntry.TABLE_NAME, null, contentValues);
-                if (id == -1) {
-                    Log.e(LOG_TAG, "Failed to insert row for " + uri);
-                    return null;
-                }
+        if (match == DIARIES) {
+            SQLiteDatabase db = mDbHelper.getWritableDatabase();
+            long id = db.insert(DiaryEntry.TABLE_NAME, null, contentValues);
+            if (id == -1) {
+                Log.e(LOG_TAG, "Failed to insert row for " + uri);
+                return null;
+            }
 
-                getContext().getContentResolver().notifyChange(uri, null);
+            getContext().getContentResolver().notifyChange(uri, null);
 
-                // Once we know the ID of the new row in the table,
-                // return the new URI with the ID appended to the end of it
-                return ContentUris.withAppendedId(uri, id);
-            default:
-                throw new IllegalArgumentException("Insertion is not supported for " + uri);
+            // Once we know the ID of the new row in the table,
+            // return the new URI with the ID appended to the end of it
+            return ContentUris.withAppendedId(uri, id);
         }
+        throw new IllegalArgumentException("Insertion is not supported for " + uri);
     }
 
     /**
